@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package Vision;
+
+message Thresholds {
+    int32 low = 1;
+    int32 high = 2;
+}
+
+service PipelineController {
+    rpc GetThresholds(google.protobuf.Empty) returns (Thresholds) {}
+    rpc SetThresholds(Thresholds) returns (google.protobuf.Empty) {}
+}
